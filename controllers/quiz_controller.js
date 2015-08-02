@@ -22,14 +22,14 @@ exports.index= function(req,res){
 };
 
 // GET /quizes?search=texto_a_buscar
-exports.search= function(req,res){
+/*exports.search= function(req,res){
 	models.Quiz.FindAll({where: ["pregunta like ?", "*search*"]}]).then(
 		function(quizes){
 		res.render('quizes/search', {quizes: quizes});
 	}
 	).catch(function(error) {next(error);})
 };
-
+*/
 // GET /quizes/:id
 exports.show = function(req,res){
 	res.render('quizes/show', {quiz: req.quiz});
