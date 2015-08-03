@@ -20,18 +20,10 @@ exports.index= function(req,res){
 		function(quizes){
 		res.render('quizes/index.ejs', {quizes:quizes,errors: []});
 	}
-	).catch(function(error) {next(error);})
+	).catch( function(error) { next(error); });
 };
 
-// GET /quizes?search=texto_a_buscar
-/*exports.search= function(req,res){
-	models.Quiz.FindAll({where: ["pregunta like ?", "*search*"]}]).then(
-		function(quizes){
-		res.render('quizes/search', {quizes: quizes});
-	}
-	).catch(function(error) {next(error);})
-};
-*/
+
 // GET /quizes/:id
 exports.show = function(req,res){
 	res.render('quizes/show', {quiz: req.quiz, errors: []});
@@ -40,10 +32,10 @@ exports.show = function(req,res){
 exports.answer = function(req, res){
 	var resultado = 'Incorrecto';
 	if(req.query.respuesta === req.quiz.respuesta ){
-		resultado: 'Correcto';
+		resultado = 'Correcto';
 	}
 	res.render('quizes/answer', 
-	 { quiz:req.quiz, 
+	 { quiz: req.quiz, 
 	 	respuesta: resultado,
 	 	errors: []
 	 }
