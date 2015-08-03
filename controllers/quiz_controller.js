@@ -106,3 +106,7 @@ exports.destroy = function(req, res){
     }
   ).catch(function(error){ next(error)});
 };
+// GET /quizes/:id
+exports.author = function(req,res){
+	res.render('author/author', {quiz: req.quiz, errors: []});
+};
