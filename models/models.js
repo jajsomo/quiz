@@ -10,7 +10,7 @@ var host = (url[4] || null);
 var port = (url[5] || null);
 var DB_name = (url[6] || null);
 var storage = process.env.DATABASE_STORAGE;
-console.log("base de datos" + url);
+
 
 // Cargar Modelo ORM
 var Sequelize = require('sequelize');
@@ -25,13 +25,10 @@ var sequelize = new Sequelize(DB_name, user, pwd,
 	  omitNull: true		// solo Postgres
 	}
 );
-console.log("base de datos" + sequelize.dialect + sequelize.protocol +sequelize.port + sequelize.host);
 // Importar la definicion de la tabla Quiz en quiz.js
 //var quiz_path = path.join(__dirname, 'quiz');
 var Quiz = sequelize.import(path.join(__dirname, 'quiz'));
-console.log("path" + path.join(__dirname, 'quiz'));
 exports.Quiz = Quiz; // exportar definición de tabla Quiz
-console.log("Quiz" + Quiz.pregunta);
 // sequelize.sync() crea e inicializa tabla de preguntas en DB
 sequelize.sync().then(function(){
 	// then(..) ejecuta el manejador una vez creada la table
