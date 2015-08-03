@@ -29,7 +29,7 @@ console.log("base de datos" + sequelize.dialect + sequelize.protocol +sequelize.
 // Importar la definicion de la tabla Quiz en quiz.js
 //var quiz_path = path.join(__dirname, 'quiz');
 var Quiz = sequelize.import(path.join(__dirname, 'quiz'));
-console.log("base de datos" + path);
+console.log("path" + path.join(__dirname, 'quiz'));
 exports.Quiz = Quiz; // exportar definición de tabla Quiz
 
 // sequelize.sync() crea e inicializa tabla de preguntas en DB
