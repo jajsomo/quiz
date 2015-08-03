@@ -1,5 +1,5 @@
 var path = require('path');
-// Postgres DATABASE_URL = postgress://user:passwd@host:port/database
+DATABASE_URL =  postgres://lxguokvzdquapu:7WnMSPIKWpFblsvY04-AeKhQoa@ec2-54-83-10-210.compute-1.amazonaws.com:5432/d7jsvfapvbq09q
 // SQLite DATABASE_URL = sqlite://:@:/
 var url =  process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
 var protocol = (url[1] || null);
