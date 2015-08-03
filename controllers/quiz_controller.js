@@ -13,6 +13,19 @@ exports.load = function(req,res,next,quizId){
 	).catch(function(error){next(error);});
 };
 
+// GET /quizes
+exports.index = function(req,res,next) {
+	var filtro = '';
+	if(req.query.search) {
+		filtro = (req.query.search || '').replace(/ /g, "%");
+	}
+
+	models.Quiz.findAll({where:["pregunta like ?", '%'+filtro+'%'],order:'pregunta ASC'}).then(
+		function(quizes) {
+			res.render('quizes/index', {quizes: quizes, errors: [] });
+		}
+	).catch(function(error) {next(error);})
+};
 
 // GET /quizes
 exports.index= function(req,res){
