@@ -22,7 +22,7 @@ exports.create = function(req, res){
         // guarda en DB los campos pregunta y respuesta de quiz
         comment
         .save()
-        .then( function(){ res.redirect('/quizes' + req.params.quizId)})
+        .then( function(){ res.redirect('/quizes/' + req.params.quizId)})
           }
   		}
     ).catch(function(error){next(error)});
