@@ -38,6 +38,23 @@ app.use(function(req,res,next){
     res.locals.session = req.session;
     next();
 });
+app.use(loopback.token({/* config */});
+app.use(function(req, res, next) {
+  var token = req.accessToken;
+  if (!token) return next();
+
+  var now = new Date();
+
+  // performance optimization:
+  // do not update the token more often than once per second
+  if (now.getTime() - token.created.getTime() < 1000) return;
+
+  // update the token and save the changes
+  req.accessToken.created = now;
+  req.accessToken.ttl = 120; /* session timeout in seconds */
+  req.accessToken.save(next);
+});
+
 
 app.use('/', routes);
 
