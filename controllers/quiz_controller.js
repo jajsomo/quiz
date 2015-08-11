@@ -28,7 +28,7 @@ exports.index = function(req,res,next) {
 		}
 	).catch(function(error) {next(error);})
 };
-
+/*
 // GET /quizes
 exports.index= function(req,res){
 	models.Quiz.findAll().then(
@@ -37,7 +37,7 @@ exports.index= function(req,res){
 	}
 	).catch( function(error) { next(error); });
 };
-
+*/
 
 // GET /quizes/:id
 exports.show = function(req,res){
