@@ -3,7 +3,7 @@ var models = require('../models/models.js');
 exports.new = function(req, res){
   var quiz = models.Quiz.build( 
     
-  res.render('comments/new', {quizId: require.params.quizId, errors: [] });
+  res.render('comments/new.ejs', {quizId: req.params.quizId, errors: [] });
 };
 
 // POST /quizes/create
