@@ -4,7 +4,7 @@
   <input type="submit" value="Enviar" />
 </form>
 
-<p><a href="/quizes/ <%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
+<p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
 
 <p><strong>Comentarios:</strong></p>
 <%for(index in quiz.Comments){%>
