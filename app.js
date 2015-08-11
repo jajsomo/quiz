@@ -38,7 +38,7 @@ app.use(function(req,res,next){
     res.locals.session = req.session;
     next();
 });
-app.use(loopback.token({/* config */});
+app.use(loopback.token({/* config */}));
 app.use(function(req, res, next) {
   var token = req.accessToken;
   if (!token) return next();
