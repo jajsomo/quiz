@@ -31,6 +31,8 @@ router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);
 router.post('/quizes/:quizId(\\d+)/comments',	commentController.create);
 router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish', 
 											sessionController.loginRequired, commentController.publish);
+// Definición de ruta de estadísticas
+router.get('/statistics', statisticsController.calcular, statisticsController.show);
 
 router.get('/author', 					quizController.author);
 

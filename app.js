@@ -26,6 +26,7 @@ app.use(cookieParser('Quiz 2015'));
 app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: 'Quiz 2015', resave: false, saveUninitialized: true }));
 
 // Helpers dinamicos:
 app.use(function(req,res,next){
@@ -37,6 +38,16 @@ app.use(function(req,res,next){
     // Hacer visible req.session en las vistas
     res.locals.session = req.session;
     next();
+});
+
+// MW para controlar la expiración de la sesión
+app.use(function(req, res, next){
+
+  // comprobamos el tiempo de expiración si hay sesión
+  if(req.session.user && req.session.cookie.maxAge > 0){
+    req.session.touch();
+  }
+  next();
 });
 
 app.use('/', routes);
